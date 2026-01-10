@@ -1,8 +1,10 @@
 #include "main.h"
 #include "EZ-Template/util.hpp"
+#include "autons.hpp"
 #include "pros/misc.h"
+#include "pros/motors.h"
 #include "subsystems.hpp"
-
+#include "function.hpp"
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
 // https://ez-robotics.github.io/EZ-Template/
@@ -11,10 +13,10 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {12, 13, 14},     // Left Chassis Ports (negative port will reverse it!)
-    {16, 17, 18},  // Right Chassis Ports (negative port will reverse it!)
+    {-18, -21, 1},     // Left Chassis Ports (negative port will reverse it!)
+    {2, 17, -20},  // Right Chassis Ports (negative port will reverse it!)
 
-    7,      // IMU Port
+    10,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     360);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
@@ -61,7 +63,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Drive\n\nDrive forward and come back", drive_example},
+      {"Drive\n\nDrive forward and come back", blueRight},
       {"Turn\n\nTurn 3 times.", turn_example},
       {"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
@@ -244,15 +246,15 @@ void ez_template_extras() {
  */
 void opcontrol() {
   // This is preference to what you like to drive on
-  chassis.drive_brake_set(MOTOR_BRAKE_COAST);
+  chassis.drive_brake_set(MOTOR_BRAKE_HOLD);
 
   while (true) {
     // Gives you some extras to make EZ-Template ezier
     ez_template_extras();
 
-    chassis.opcontrol_tank();  // Tank control
-    // chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
-    // chassis.opcontrol_arcade_standard(ez::SINGLE);  // Standard single arcade
+    // chassis.opcontrol_tank();  // Tank control
+    chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
+    // chassis.opcpppp]ontrol_arcade_standard(ez::SINGLE);  // Standard single arcade
     // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
     // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
 
@@ -260,17 +262,18 @@ void opcontrol() {
     // Put more user control code here!
     // . . .
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-      mainIntake.move(127);
-      indexer.move(127);
+      runIntakeHigh(); // runs to long goal
     } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-      mainIntake.move(127);
-      indexer.move(-127);
-    } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-      mainIntake.move(-127);
+      runIntakeLow(); // runs to center goal
+    } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1) ){
+      runIntakeOut(); // outtakes blocks
     } else {
-      mainIntake.move(0);
-      indexer.move(0);
+      stopIntake(); // stops intake
     }
+
+    // if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+    //   tongue.toggle(); // toggles tongue mechanism
+    // }
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
 }

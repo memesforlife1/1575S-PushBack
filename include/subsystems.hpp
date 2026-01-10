@@ -2,6 +2,7 @@
 
 #include "EZ-Template/api.hpp"
 #include "api.h"
+#include "pros/adi.hpp"
 
 extern Drive chassis;
 
@@ -11,3 +12,4 @@ extern Drive chassis;
 // inline pros::adi::DigitalIn limit_switch('A');
 inline pros::Motor mainIntake(-7);
 inline pros::Motor indexer(8);
+inline pros::adi::Pneumatics tongue('A', false);  // Pneumatics for the intake tongue, A is the out port, B is the in port

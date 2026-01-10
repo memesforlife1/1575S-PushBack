@@ -1,4 +1,9 @@
+#include <sys/types.h>
 #include "main.h"
+#include "pros/motors.h"
+#include "pros/rtos.hpp"
+#include "subsystems.hpp"
+#include "function.hpp"
 
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
@@ -376,3 +381,17 @@ void measure_offsets() {
 // . . .
 // Make your own autonomous functions here!
 // . . .
+
+void blueRight() {
+  chassis.pid_drive_set(25, 90, true);
+  chassis.pid_wait();
+  chassis.pid_turn_set(270, 100, true); 
+  chassis.pid_wait();
+  pros::delay(200);
+  runIntakeLow();
+  chassis.pid_drive_set(30, 90, true);
+  chassis.pid_wait();
+  stopIntake();
+  pros::delay(200);
+  runIntakeOut();
+}
