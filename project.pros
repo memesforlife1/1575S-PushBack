@@ -424,10 +424,10 @@
       }
     },
     "upload_options": {
-      "description": "This is the program for Battle of the Bridge. Last updated: December 7th.",
-      "icon": "clawbot",
+      "description": "shahzain ur so cool",
+      "icon": "ufo",
       "after": "run",
-      "slot": 2
+      "slot": 1
     },
     "use_early_access": false
   }
