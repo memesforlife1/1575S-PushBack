@@ -68,6 +68,7 @@ void initialize() {
       {"Blue Left\n\nScores 1 block.", blueLeft},
       {"Red Right\n\nScores 1 block.", redRight},
       {"Red Left\n\nScores 1 block.", redLeft},
+      {"Skills\n\nScores 1 block.", skills},
   });
 
   // Initialize chassis and auton selector
@@ -237,7 +238,7 @@ void ez_template_extras() {
  */
 void opcontrol() {
   // This is preference to what you like to drive on
-  chassis.drive_brake_set(MOTOR_BRAKE_HOLD);
+  chassis.drive_brake_set(MOTOR_BRAKE_COAST);
 
   while (true) {
     // Gives you some extras to make EZ-Template ezier

@@ -9,7 +9,7 @@ void runIntakeHigh() {
 }
 void runIntakeLow() {
     mainIntake.move(127);
-    indexer.move(15);
+    indexer.move(40);
 }
 void runIntakeOut() {
     mainIntake.move(-127);

@@ -383,17 +383,17 @@ void measure_offsets() {
 // . . .
 
 void blueRight() {
-  chassis.pid_drive_set(29, 90);
+  chassis.pid_drive_set(36, 90);
   chassis.pid_wait();
 
   chassis.pid_turn_set(90, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-28, 90);
+  chassis.pid_drive_set(-25.5, 90);
   chassis.pid_wait();
 
   runIntakeHigh();
-  pros::delay(500);
+  pros::delay(600);
   stopIntake();
 
   chassis.pid_drive_set(10, 90);
@@ -401,17 +401,17 @@ void blueRight() {
 }
 
 void blueLeft() {
-  chassis.pid_drive_set(29, 90);
+  chassis.pid_drive_set(36, 90);
   chassis.pid_wait();
 
   chassis.pid_turn_set(-90, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-28, 90);
+  chassis.pid_drive_set(-26.5, 90);
   chassis.pid_wait();
 
   runIntakeHigh();
-  pros::delay(500);
+  pros::delay(600);
   stopIntake();
 
   chassis.pid_drive_set(10, 90);
@@ -419,17 +419,17 @@ void blueLeft() {
 }
 
 void redRight() {
-  chassis.pid_drive_set(29, 90);
+  chassis.pid_drive_set(36, 90);
   chassis.pid_wait();
 
   chassis.pid_turn_set(90, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-28, 90);
+  chassis.pid_drive_set(-26.5, 90);
   chassis.pid_wait();
 
   runIntakeHigh();
-  pros::delay(500);
+  pros::delay(600);
   stopIntake();
 
   chassis.pid_drive_set(10, 90);
@@ -437,19 +437,80 @@ void redRight() {
 }
 
 void redLeft() {
-  chassis.pid_drive_set(29, 90);
+  chassis.pid_drive_set(36, 90);
   chassis.pid_wait();
 
   chassis.pid_turn_set(-90, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-28, 90);
+  chassis.pid_drive_set(-26.5, 90);
   chassis.pid_wait();
 
   runIntakeHigh();
-  pros::delay(500);
+  pros::delay(600);
   stopIntake();
 
   chassis.pid_drive_set(10, 90);
   chassis.pid_wait();
+}
+
+void skills() {
+  chassis.pid_drive_set(36, 90);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-90, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-26.5, 90);
+  chassis.pid_wait();
+
+  runIntakeHigh();
+  pros::delay(600);
+  stopIntake();
+
+  chassis.pid_drive_set(20, 90);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(180, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(26, 90);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(90, 90);
+  chassis.pid_wait();
+
+  runIntakeHigh();
+  chassis.pid_drive_set(30, 90);
+  chassis.pid_wait();
+  pros::delay(350);
+  stopIntake();
+
+  chassis.pid_drive_set(-7, 90);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-40, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-23, 90);
+  chassis.pid_wait();
+
+  runIntakeHigh();
+  pros::delay(1000);
+  stopIntake();
+
+  chassis.pid_drive_set(-5, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(25, 90);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(95, 90);
+  chassis.pid_wait();
+
+  runIntakeHigh();
+  chassis.pid_drive_set(84, 90, true);
+  chassis.pid_wait();
+  stopIntake();
+
 }
