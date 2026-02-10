@@ -392,9 +392,11 @@ void blueRight() {
   chassis.pid_drive_set(-25.5, 90);
   chassis.pid_wait();
 
+  tongueOut();
   runIntakeHigh();
   pros::delay(600);
   stopIntake();
+  tongueIn();
 
   chassis.pid_drive_set(10, 90);
   chassis.pid_wait();
@@ -410,9 +412,11 @@ void blueLeft() {
   chassis.pid_drive_set(-26.5, 90);
   chassis.pid_wait();
 
+  tongueOut();
   runIntakeHigh();
   pros::delay(600);
   stopIntake();
+  tongueIn();
 
   chassis.pid_drive_set(10, 90);
   chassis.pid_wait();
@@ -428,9 +432,11 @@ void redRight() {
   chassis.pid_drive_set(-26.5, 90);
   chassis.pid_wait();
 
+  tongueOut();
   runIntakeHigh();
   pros::delay(600);
   stopIntake();
+  tongueIn();
 
   chassis.pid_drive_set(10, 90);
   chassis.pid_wait();
@@ -446,9 +452,11 @@ void redLeft() {
   chassis.pid_drive_set(-26.5, 90);
   chassis.pid_wait();
 
+  tongueOut();
   runIntakeHigh();
   pros::delay(600);
   stopIntake();
+  tongueIn();
 
   chassis.pid_drive_set(10, 90);
   chassis.pid_wait();
@@ -464,9 +472,11 @@ void skills() {
   chassis.pid_drive_set(-26.5, 90);
   chassis.pid_wait();
 
+  tongueOut();
   runIntakeHigh();
   pros::delay(600);
   stopIntake();
+  tongueIn();
 
   chassis.pid_drive_set(20, 90);
   chassis.pid_wait();
@@ -480,11 +490,13 @@ void skills() {
   chassis.pid_turn_set(90, 90);
   chassis.pid_wait();
 
+  tongueOut();
   runIntakeHigh();
   chassis.pid_drive_set(40, 50);
   chassis.pid_wait();
   pros::delay(650);
   stopIntake();
+  tongueIn();
 
   chassis.pid_drive_set(-20, 90);
   chassis.pid_wait();
@@ -495,9 +507,11 @@ void skills() {
   chassis.pid_drive_set(-20, 90);
   chassis.pid_wait();
 
+  tongueOut();
   runIntakeHigh();
   pros::delay(3500);
   stopIntake();
+  tongueIn();
 
   chassis.pid_drive_set(-5, 90);
   chassis.pid_wait();
