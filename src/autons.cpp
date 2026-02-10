@@ -481,22 +481,22 @@ void skills() {
   chassis.pid_wait();
 
   runIntakeHigh();
-  chassis.pid_drive_set(30, 90);
+  chassis.pid_drive_set(40, 50);
   chassis.pid_wait();
-  pros::delay(350);
+  pros::delay(650);
   stopIntake();
 
-  chassis.pid_drive_set(-7, 90);
+  chassis.pid_drive_set(-20, 90);
   chassis.pid_wait();
 
   chassis.pid_turn_set(-40, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-23, 90);
+  chassis.pid_drive_set(-20, 90);
   chassis.pid_wait();
 
   runIntakeHigh();
-  pros::delay(1000);
+  pros::delay(3500);
   stopIntake();
 
   chassis.pid_drive_set(-5, 90);
@@ -505,12 +505,24 @@ void skills() {
   chassis.pid_drive_set(25, 90);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(95, 90);
+  chassis.pid_turn_set(90, 90);
   chassis.pid_wait();
 
-  runIntakeHigh();
-  chassis.pid_drive_set(84, 90, true);
+  chassis.pid_drive_set(-20, 90);
   chassis.pid_wait();
-  stopIntake();
 
+  chassis.pid_turn_set(0, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-30, 127);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(90, 127);
+  chassis.pid_wait(); 
+
+  chassis.pid_drive_set(10, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-65, 127, true);
+  chassis.pid_wait();
 }
