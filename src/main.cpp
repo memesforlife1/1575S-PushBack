@@ -262,7 +262,11 @@ void opcontrol() {
     } else {
       stopIntake(); // stops intake
     }
-
+  
+    if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
+      tongueToggle();
+    }
+    
     // if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
     //   tongue.toggle(); // toggles tongue mechanism
     // }
