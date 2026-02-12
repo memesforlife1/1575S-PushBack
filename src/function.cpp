@@ -21,8 +21,12 @@ void stopIntake() {
 }
 
 void tongueOut() {
-    tongue.set_value(true);
+    Tongue.set_value(true);
 }
 void tongueIn() {
-    tongue.set_value(false); 
+    Tongue.set_value(false); 
+}
+
+void tongueToggle() {
+    Tongue.toggle();
 }
